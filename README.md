@@ -16,6 +16,8 @@
 
 this is all well and good but we still can't link to a single page, how would we set up to do that instead? say we wanted to link to an individual quote. we can't right now.
 
+### how to improve this setup
+
 Up to this point, our React applications have been limited in size, thus allowing us to use basic conditional logic in our components' render methods for changing component views. However, as our React applications grow in size and scope, we will want an easier and more robust way to set up navigation to different component views. Additionally, we will want the ability to set information in the url parameters to make it easier for users to identify where they are in the application.
 
 React Router, while not the only, is the most commonly-used routing library for React. It is relatively straightforward to configure and integrates with the component architecture nicely (itself being nothing but a collection of components). Once configured, it serves as the root component in a React application and renders other application components within itself depending on the path in the url.
@@ -58,13 +60,15 @@ In `App.js`:
 render() {
   return (
     <Router />
-      <Route path="/" component={Home} />
+      <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/quotes" component={QuoteList} apiData={this.state.apiData} />
     </Router>
   );
 }
 ```
+
+- something in here about that `exact path` thing
 
 Now when we go to `/about`, we'll render the `About` component. And when we go to `/quotes`, we'll render the `QuoteList` component.
 
@@ -84,6 +88,11 @@ render() {
 }
 
 ```
+
+### routing with params
+
+- something about `/quotes/:id`
+- something about `match`... will need to play with this
 
 ## todo
 
