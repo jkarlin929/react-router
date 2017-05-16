@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+
 import QuoteList from './components/QuoteList';
 import Footer from './components/Footer';
 import Header from './components/Header';
+
 import './index.css';
 import './App.css';
 
@@ -30,6 +32,7 @@ class App extends Component {
       })
   }
 
+  // displays quotes if API data has loaded
   renderQuoteList() {
     if (this.state.apiDataLoaded) {
       return <QuoteList apiData={this.state.apiData} setFeature={this.setFeature} featuredQuote={this.state.featuredQuoteId} />
@@ -48,9 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <main>
-          {this.renderQuoteList()}
-        </main>
+          
         <Footer />
       </div>
     );
