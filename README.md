@@ -58,6 +58,7 @@ In `App.js`:
 render() {
   return (
     <Router />
+      <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/quotes" component={QuoteList} apiData={this.state.apiData} />
     </Router>
@@ -75,6 +76,7 @@ In `Nav.jsx`:
 render() {
   return (
     <nav>
+      <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Link to="/quotes">Quotes</Link>
     </nav>
