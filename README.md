@@ -2,7 +2,7 @@
 
 ### Learning Objectives
 
-- [stuff]
+- Use React Router to create a single-page app that duplicates the functionality of a multi-page site
 
 
 ## notes
@@ -12,5 +12,8 @@
 - ada quotes app with routing
 
 ## lab concepts
+- 
 
-- swapi lab (characters/1 etc)
+## homework concepts
+
+- swapi homework (characters/1 etc)
