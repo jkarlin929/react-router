@@ -204,7 +204,7 @@ As we do so, we'll do the following things:
 
 - swapi lab (characters/1 etc) (similar to [this](https://github.com/ga-students/WDI_HAKUNA_MATATA/blob/master/unit02/w06_d04/lab/starwars-routing-lab.md))
 
-
 ## homework concepts
 
-- [pokeapi](https://pokeapi.co/) with routes? or just get them started on full CRUD tweedr
+- something super basic like the house example above
+- dogs & cats?
