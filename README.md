@@ -4,7 +4,7 @@
 
 - Import and use third-party node modules into React using npm (Node Package Manager)
 - Use React Router to create a single-page app that duplicates the functionality of a multi-page site
-- Use `BrowserRouter`, `Link`, `Route`, `Switch`, and `Redirect` to allow for navigation and URL manipulation
+- Use `Router`, `Link`, `Route`, and `Redirect` to allow for navigation and URL manipulation
 
 ## How can we organize our apps as they grow?
 
