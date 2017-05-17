@@ -4,7 +4,7 @@ class Room extends Component {
   render() {
     return (
       <div>
-        <p>This is a room component</p>
+        <p>This is the {this.props.match.params.room}.</p>
       </div>
     );
   };

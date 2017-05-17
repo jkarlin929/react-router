@@ -75,9 +75,83 @@ Much as in our Express routes, the React Router `Route` component allows us to d
 
 In `App.js`:
 
+```
+  render() {
+    return (
+      <Router>
+        <div className="app">
+          <main>
+            <Route path="/" component={Index} />
+            <Route path="/house" component={House} />
+          </main>
+        </div>
+      </Router>
+    );
+  }
+```
 
+Let's talk a little bit about what's going on here. 
 
+```
+<Route path="/" component={Index} />
+```
 
+We're telling the route what path it should expect, and which component it should render at that point. However, there's one thing we need to fix. The path to `/house` also shows our index component. That shouldn't happen! We fix it by using `exact` as we define the path.
+
+```
+  render() {
+    return (
+      <Router>
+        <div className="app">
+          <main>
+            <Route exact path="/" component={Index} />
+            <Route path="/house" component={House} />
+          </main>
+        </div>
+      </Router>
+    );
+  }
+```
+
+This tells the route to only render that component if the route is exactly `/`.
+
+### Using params
+
+Just like with Express, we can use parameters in our URL structure to render pages differently. Let's add a new route to our app so far.
+
+```
+  render() {
+    return (
+      <Router>
+        <main>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/house" component={House} />
+          <Route path="/house/:room" component={Room} />
+        </main>
+      </Router>
+    );
+  }
+```
+
+Notice the colon, just like an Express route. Now, whatever `/house/[whatever]` endpoint we go to, we'll be getting a `Room` component.
+
+However, as it is right now, the `Room` component is pretty boring. Let's see if we can make it a little bit more interesting. React Router allows us to access the parameters we're passed in the route -- sort of like `req.params`. 
+
+In `Room.jsx`:
+
+```
+  render() {
+    return (
+      <div>
+        <p>This is the {this.props.match.params.room}.</p>
+      </div>
+    );
+  };
+```
+
+### Linking to routes
+
+We've used `Router` and `Route` that we imported from `react-router-dom`, but not `Link` yet. `Link`, predictably, is what allows you to link to other pages in your app. Let's add a pseudo-navigation to our app.
 
 In `App.js`:
 
@@ -85,47 +159,39 @@ In `App.js`:
 render() {
   return (
     <Router>
-      <Header />
-      <main>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route exact path="/quotes" component={QuoteList} apiData={this.state.apiData} />
-      </main>
-      <Footer />
+      <div className="app">
+        <nav>
+          <ul>
+            <li><Link to="/">Index</Link></li>
+            <li><Link to="/house">House</Link></li>
+            <li><Link to="/house/kitchen">Kitchen</Link></li>
+            <li><Link to="/house/porch">Porch</Link></li>
+          </ul>
+        </nav>
+        <main>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/house" component={House} />
+          <Route path="/house/:room" component={Room} />
+        </main>
+      </div>
     </Router>
   );
 }
 ```
 
-- something in here about that `exact path` thing
+## 🚀 Lab!
 
-Now when we go to `/about`, we'll render the `About` component. And when we go to `/quotes`, we'll render the `QuoteList` component.
+Let's all get on the same route.
 
-Sometimes we may want to link to other pages from a navbar or something like that. That looks like this. 
+In the  `router-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
 
-In `Nav.jsx`:
+You can work in pairs or groups for this lab. 
 
-```
-render() {
-  return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/quotes">Quotes</Link>
-    </nav>
-  );
-}
+**You may *NOT* copy and paste!!!!!**
 
-```
+# Routes, states, and multi-page apps
 
-### routing with params
-
-- something about `/quotes/:id`
-- something about `match`... will need to play with this
-
-## todo
-
-- ada quotes app with routing
+Using routes to decide 
 
 ## lab concepts
 
