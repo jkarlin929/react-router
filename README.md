@@ -63,7 +63,7 @@ render() {
       <main>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/quotes" component={QuoteList} apiData={this.state.apiData} />
+        <Route exact path="/quotes" component={QuoteList} apiData={this.state.apiData} />
       </main>
     </Router>
   );
