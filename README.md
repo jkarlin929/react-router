@@ -179,7 +179,7 @@ render() {
 }
 ```
 
-## 🚀 Lab!
+## 🚀 LAB!!!!
 
 Let's all get on the same route.
 
@@ -191,9 +191,16 @@ You can work in pairs or groups for this lab.
 
 # Routes, states, and multi-page apps
 
-Using routes to decide 
+Using routes to mimic a multi-page effect is good and cool, but the example we just walked through is just the tip of the iceberg of what's possible when it comes to routes. Let's add routes to our Ada Quotes React app.
 
-## lab concepts
+As we do so, we'll do the following things:
+
+- Set up the core of our app with a router that allows us to visit three pages: `Home`, `QuotesList`, and `SingleQuote`.
+- Add a navigation that provides links to `Home` and `QuotesList`.
+- Add a link to each individual quote in `QuotesList` that takes the user to a `SingleQuote` page.
+- Make API calls based on what route we're on.
+
+## 🚀 LAB!!!!
 
 - swapi lab (characters/1 etc) (similar to [this](https://github.com/ga-students/WDI_HAKUNA_MATATA/blob/master/unit02/w06_d04/lab/starwars-routing-lab.md))
 
