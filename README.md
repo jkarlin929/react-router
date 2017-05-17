@@ -179,9 +179,7 @@ render() {
 }
 ```
 
-## 🚀 LAB!!!!
-
-Let's all get on the same route.
+## 🚀 LAB!!!! Let's all get on the same route.
 
 In the  `router-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
 
@@ -200,7 +198,7 @@ As we do so, we'll do the following things:
 - Add a link to each individual quote in `QuotesList` that takes the user to a `SingleQuote` page.
 - Make API calls based on what route we're on.
 
-## 🚀 LAB!!!!
+## 🚀 LAB!!!! Star Wars with ROUTES!
 
 - swapi lab (characters/1 etc) (similar to [this](https://github.com/ga-students/WDI_HAKUNA_MATATA/blob/master/unit02/w06_d04/lab/starwars-routing-lab.md))
 
