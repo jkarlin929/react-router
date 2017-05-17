@@ -59,7 +59,7 @@ In `App.js`:
 ```
 render() {
   return (
-    <Router />
+    <Router>
       <main>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
