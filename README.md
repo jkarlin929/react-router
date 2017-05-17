@@ -60,11 +60,13 @@ In `App.js`:
 render() {
   return (
     <Router>
+      <Header />
       <main>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route exact path="/quotes" component={QuoteList} apiData={this.state.apiData} />
       </main>
+      <Footer />
     </Router>
   );
 }
