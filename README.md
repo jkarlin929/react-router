@@ -6,7 +6,7 @@
 - Use React Router to create a single-page app that duplicates the functionality of a multi-page site
 - Use `BrowserRouter`, `Link`, `Route`, `Switch`, and `Redirect` to allow for navigation and URL manipulation
 
-### How can we organize our apps as they grow?
+## How can we organize our apps as they grow?
 
 Let's think about the standard webpage. A lot of sites follow a structure sort of like this:
 
