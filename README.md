@@ -196,13 +196,8 @@ As we do so, we'll do the following things:
 - Set up the core of our app with a router that allows us to visit three pages: `Home`, `QuotesList`, and `SingleQuote`.
 - Add a navigation that provides links to `Home` and `QuotesList`.
 - Add a link to each individual quote in `QuotesList` that takes the user to a `SingleQuote` page.
-- Make API calls based on what route we're on.
+- Make API calls based on what route we're on and what params have been passed.
 
 ## 🚀 LAB!!!! Star Wars with ROUTES!
 
 - swapi lab (characters/1 etc) (similar to [this](https://github.com/ga-students/WDI_HAKUNA_MATATA/blob/master/unit02/w06_d04/lab/starwars-routing-lab.md))
-
-## homework concepts
-
-- something super basic like the house example above
-- dogs & cats?
