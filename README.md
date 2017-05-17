@@ -8,21 +8,33 @@
 - Use React Router to create a single-page app that duplicates the functionality of a multi-page site
 - Use `BrowserRouter`, `Link`, `Route`, `Switch`, and `Redirect` to allow for navigation and URL manipulation
 
-## initial lecture structure
+# How can we organize our apps as they grow?
 
-### talking about the concept of different "pages" in React
-- provide adaquotes react about the same as the [end lifting state one](https://git.generalassemb.ly/nyc-wdi-ada/adaquotes_featuredquote_examples/tree/master/adaquotes-lifted-state) but with an about page and ability to click on single quotes for a full page
-- talk through the changes and the `pageType` state set
+Let's think about the standard webpage. A lot of sites follow a structure sort of like this:
 
-this is all well and good but we still can't link to a single page, how would we set up to do that instead? say we wanted to link to an individual quote. we can't right now.
+- Home
+- About
+- Services
+- Blog / Gallery / Etc.
+- Contact
 
-### how to improve this setup
+Or maybe like this:
+
+- Home
+- Login / Register
+- Dashboard
+- About
+- Contact
+
+Each of those pages might have multiple subpages, which might have subpages of their own. How might we accomplish something like this with React? And how can we make it so we can link to each one of those pages?
+
+## Enter React Router!
 
 Up to this point, our React applications have been limited in size, thus allowing us to use basic conditional logic in our components' render methods for changing component views. However, as our React applications grow in size and scope, we will want an easier and more robust way to set up navigation to different component views. Additionally, we will want the ability to set information in the url parameters to make it easier for users to identify where they are in the application.
 
 React Router, while not the only, is the most commonly-used routing library for React. It is relatively straightforward to configure and integrates with the component architecture nicely (itself being nothing but a collection of components). Once configured, it serves as the root component in a React application and renders other application components within itself depending on the path in the url.
 
-### intro to react router
+## Intro to React Router
 - remember `require`ing different modules when we did express? `import` works just like that, and we can `npm install` things that we can then `import`.
 - so for routing, we'll use a package called `react-router-dom`. 
 - walk through setup steps
