@@ -27,7 +27,7 @@ class SingleQuote extends Component {
   renderQuote() {
     if (this.state.quoteDataReceived) {
       return (
-        <div>
+        <div className="my-quote">
           <h3>{this.state.quote.content}</h3>
           <span className="author">{this.state.quote.author}</span>
           <span className="genre">{this.state.quote.genre_type}</span>
