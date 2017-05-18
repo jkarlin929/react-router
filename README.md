@@ -181,7 +181,7 @@ render() {
 
 ## 🚀 LAB!!!! Let's all get on the same route.
 
-In the  `router-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
+In the  `hosue-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
 
 You can work in pairs or groups for this lab. 
 
