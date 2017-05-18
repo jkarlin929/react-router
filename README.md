@@ -198,6 +198,14 @@ As we do so, we'll do the following things:
 - Add a link to each individual quote in `QuotesList` that takes the user to a `SingleQuote` page.
 - Make API calls based on what route we're on and what params have been passed.
 
-## 🚀 LAB!!!! Star Wars with ROUTES!
+## 🚀 LAB!!!! Adding a new route to our quotes app!
 
-- swapi lab (characters/1 etc) (similar to [this](https://github.com/ga-students/WDI_HAKUNA_MATATA/blob/master/unit02/w06_d04/lab/starwars-routing-lab.md))
+For this lab you will add another route and another component.
+
+- `npm install` to install the necessary dependencies
+- The new route should be `/about`
+- The about component should just have some basic info about WDI ADA and maybe a picture of Ada Lovelace or something
+- After adding the component, add a link to the component in the header next to our other links
+- After adding the link, add a `<Route />` component that will match that route
+
+The final product should be the same as the app from the lecture with an additional link in the header to the new `About` component that you've created.
