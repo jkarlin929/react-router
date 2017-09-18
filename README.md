@@ -14,7 +14,7 @@ Let's think about the standard webpage. A lot of sites follow a structure sort o
 - About
 - Services
 - Blog / Gallery / Etc.
-- Contact\
+- Contact
 
 Each of those pages might have multiple subpages, which might have subpages of their own. How might we accomplish something like this with React? And how can we make it so we can link to each one of those pages?
 
