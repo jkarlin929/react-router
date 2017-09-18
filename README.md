@@ -29,10 +29,10 @@ React Router, while not the only, is the most commonly-used routing library for 
 Just like we had different dependencies in express that we imported using `require`, we can import modules into our React apps. Here's the steps for setting up React Router:
 
 - `npm install --save react-router-dom`
-- Add the following JS to `App.js`
+- Add the following JS to `index.js`
 
 ```js
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 ```
 
 You will have to import things from `react-router-dom` in a couple of other places as well. We'll talk about those in a bit.
