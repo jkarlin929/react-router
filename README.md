@@ -1,9 +1,8 @@
 # React Router!
 
 ### Learning Objectives
-
-- Import and use third-party node modules into React using npm (Node Package Manager)
-- Use React Router to create a single-page app that duplicates the functionality of a multi-page site
+- Describe how React Router makes our SPA "internet-ready" 
+- Use React Router to create a single-page app that replicates the functionality of a multi-page site
 - Use `Router`, `Link`, `Route`, `Redirect` and `Switch` to allow for navigation and URL manipulation
 
 ## How can we organize our apps as they grow?
