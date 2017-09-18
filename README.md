@@ -1,9 +1,8 @@
 # React Router!
 
 ### Learning Objectives
-
-- Import and use third-party node modules into React using npm (Node Package Manager)
-- Use React Router to create a single-page app that duplicates the functionality of a multi-page site
+- Describe how React Router makes our SPA "internet-ready" 
+- Use React Router to create a single-page app that replicates the functionality of a multi-page site
 - Use `Router`, `Link`, `Route`, `Redirect` and `Switch` to allow for navigation and URL manipulation
 
 ## How can we organize our apps as they grow?
@@ -14,7 +13,7 @@ Let's think about the standard webpage. A lot of sites follow a structure sort o
 - About
 - Services
 - Blog / Gallery / Etc.
-- Contact\
+- Contact/
 
 Each of those pages might have multiple subpages, which might have subpages of their own. How might we accomplish something like this with React? And how can we make it so we can link to each one of those pages?
 
