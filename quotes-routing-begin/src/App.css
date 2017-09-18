@@ -67,7 +67,7 @@ div p {
 
 /* body, header, footer */
 
-.adaquotes {
+.quotes {
   display: flex;
   min-height: 100vh;
   flex-direction: column;

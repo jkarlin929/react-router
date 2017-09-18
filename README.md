@@ -4,7 +4,7 @@
 
 - Import and use third-party node modules into React using npm (Node Package Manager)
 - Use React Router to create a single-page app that duplicates the functionality of a multi-page site
-- Use `Router`, `Link`, `Route`, and `Redirect` to allow for navigation and URL manipulation
+- Use `Router`, `Link`, `Route`, `Redirect` and `Switch` to allow for navigation and URL manipulation
 
 ## How can we organize our apps as they grow?
 
@@ -14,14 +14,6 @@ Let's think about the standard webpage. A lot of sites follow a structure sort o
 - About
 - Services
 - Blog / Gallery / Etc.
-- Contact
-
-Or maybe like this:
-
-- Home
-- Login / Register
-- Dashboard
-- About
 - Contact
 
 Each of those pages might have multiple subpages, which might have subpages of their own. How might we accomplish something like this with React? And how can we make it so we can link to each one of those pages?
@@ -40,11 +32,7 @@ Just like we had different dependencies in express that we imported using `requi
 - Add the following JS to `App.js`
 
 ```js
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 ```
 
 You will have to import things from `react-router-dom` in a couple of other places as well. We'll talk about those in a bit.
@@ -67,25 +55,46 @@ In this example, we're hitting the `/about` route and then saying "Okay, render 
 
 React Router gives us access to the `Router` component. It talks to the browser and allows us to create "history" (the ability to use the forward/back buttons) with our app, even though we are still on a single-page app.
 
+As with a components `render()` method the `Router` component also expects to receive only one child element.  The child element can have routes defined or those routes could be even nested further.  
+
 ### `Route`
 
-Much as in our Express routes, the React Router `Route` component allows us to define a URL endpoint and describe what should load on the page at that point.
+Much as in our Express routes, the React Router `Route` component allows us to define a URL endpoint and describe what should load on the page at that point. They can be created anyplace inside of `Router`.
+
+#### `Route Props`
+
+A `route` has defined props that tell it what route to look for but also what to do once that route has been matched.   Below are the props used most often:
+
+- `path` - the url that should be matched
+- `component` - the component that should be rendered
+- `render` - jsx that should be rendered instead of using component
+
+A `route` requires a `path` prop which contains the route it's looking to match. 
 
 ### Let's put both of these in action.
+
+In `index.js`:
+
+```
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root')
+);
+```
 
 In `App.js`:
 
 ```
   render() {
     return (
-      <Router>
         <div className="app">
           <main>
             <Route path="/" component={Index} />
             <Route path="/house" component={House} />
           </main>
         </div>
-      </Router>
     );
   }
 ```
@@ -101,19 +110,39 @@ We're telling the route what path it should expect, and which component it shoul
 ```
   render() {
     return (
-      <Router>
         <div className="app">
           <main>
             <Route exact path="/" component={Index} />
             <Route path="/house" component={House} />
           </main>
         </div>
-      </Router>
     );
   }
 ```
 
 This tells the route to only render that component if the route is exactly `/`.
+
+If you ever need to test paths you can use this nifty [router tester](https://pshrmn.github.io/route-tester/#/) app to do so. 
+
+### `Switch` and `Redirect`
+
+The `Switch` component is used to group routes and `Redirect` as the last route to render when no others have been matched. 
+
+```
+  render() {
+    return (
+        <div className="app">
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/house" component={House} />
+              <Redirect to="/" />
+            </Switch>
+          </main>
+        </div>
+    );
+  }
+```
 
 ### Using params
 
@@ -122,13 +151,11 @@ Just like with Express, we can use parameters in our URL structure to render pag
 ```
   render() {
     return (
-      <Router>
-        <main>
-          <Route exact path="/" component={Index} />
-          <Route exact path="/house" component={House} />
-          <Route path="/house/:room" component={Room} />
-        </main>
-      </Router>
+	    <main>
+	      <Route exact path="/" component={Index} />
+	      <Route exact path="/house" component={House} />
+	      <Route path="/house/:room" component={Room} />
+	    </main>
     );
   }
 ```
@@ -151,35 +178,50 @@ In `Room.jsx`:
 
 ### Linking to routes
 
-We've used `Router` and `Route` that we imported from `react-router-dom`, but not `Link` yet. `Link`, predictably, is what allows you to link to other pages in your app. Let's add a pseudo-navigation to our app.
+We've used `Router` and `Route` that we imported from `react-router-dom`, but not `Link` yet. `Link`, predictably, is what allows you to link to other pages in your app. Let's create a new component called `Header` add a pseudo-navigation to our app.
 
-In `App.js`:
+In `Header.js`:
 
 ```
 render() {
   return (
-    <Router>
-      <div className="app">
-        <nav>
-          <ul>
-            <li><Link to="/">Index</Link></li>
-            <li><Link to="/house">House</Link></li>
-            <li><Link to="/house/kitchen">Kitchen</Link></li>
-            <li><Link to="/house/porch">Porch</Link></li>
-          </ul>
-        </nav>
-        <main>
-          <Route exact path="/" component={Index} />
-          <Route exact path="/house" component={House} />
-          <Route path="/house/:room" component={Room} />
-        </main>
-      </div>
-    </Router>
+    <nav>
+      <ul>
+        <li><Link to="/">Index</Link></li>
+        <li><Link to="/house">House</Link></li>
+        <li><Link to="/house/kitchen">Kitchen</Link></li>
+        <li><Link to="/house/porch">Porch</Link></li>
+      </ul>
+    </nav>
   );
 }
 ```
 
-## 🚀 LAB!!!! Let's all get on the same route.
+### Final App Component
+
+Importing the new `Header` component into `App` will complete our demo. 
+
+```
+class App extends Component {
+  render() {
+    return (
+        <div className="app">
+          <Header />
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/house" component={House} />
+              <Route path="/house/:room" component={Room} />
+              <Redirect to="/" />
+            </Switch>
+          </main>
+        </div>
+    );
+  }
+}
+```
+
+## 🚀 Lab - Using Routes - (30 min) 
 
 In the  `hosue-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
 
@@ -187,9 +229,13 @@ You can work in pairs or groups for this lab.
 
 **You may *NOT* copy and paste!!!!!**
 
+### LAB Review
+
+Let's take sometime to review the lab and make sure we understand how to implement routing and answer any lingering questions. 
+
 # Routes, states, and multi-page apps
 
-Using routes to mimic a multi-page effect is good and cool, but the example we just walked through is just the tip of the iceberg of what's possible when it comes to routes. Let's add routes to our Ada Quotes React app.
+Using routes to mimic a multi-page effect is good and cool, but the example we just walked through is just the tip of the iceberg of what's possible when it comes to routes. Let's add routes to our Dresselhaus Quotes React app.
 
 As we do so, we'll do the following things:
 
@@ -198,14 +244,18 @@ As we do so, we'll do the following things:
 - Add a link to each individual quote in `QuotesList` that takes the user to a `SingleQuote` page.
 - Make API calls based on what route we're on and what params have been passed.
 
-## 🚀 LAB!!!! Adding a new route to our quotes app!
+## 🚀 Lab - Adding a new route to our quotes app! - (30 min) 
 
 For this lab you will add another route and another component.
 
 - `npm install` to install the necessary dependencies
 - The new route should be `/about`
-- The about component should just have some basic info about WDI ADA and maybe a picture of Ada Lovelace or something
+- The about component should just have some basic info about WDI Dresselhaus and maybe a picture of Dresselhaus Dresselhausor something
 - After adding the component, add a link to the component in the header next to our other links
 - After adding the link, add a `<Route />` component that will match that route
 
 The final product should be the same as the app from the lecture with an additional link in the header to the new `About` component that you've created.
+
+
+### References
+
