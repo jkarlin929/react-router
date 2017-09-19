@@ -15,7 +15,7 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
-            <Route path="/" component={Home} />
+            <Route path="/" render={() => (<div>Hi</div>)} />
             <Route path="/house" component={House} />
             <Route path="/house/:room" component={Room} />
             <Redirect to="/" />
