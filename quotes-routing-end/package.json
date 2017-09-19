@@ -1,5 +1,5 @@
 {
-  "name": "router-begin",
+  "name": "adaquotes-routing-begin",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.2.2"
   },
   "scripts": {
     "start": "react-scripts start",

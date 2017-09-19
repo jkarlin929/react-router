@@ -11,17 +11,17 @@ import Room from './components/Room';
 class App extends Component {
   render() {
     return (
-        <div className="app">
-          <Header />
-          <main>
-            <Switch>
-              <Route path="/" component={Home} />
-              <Route path="/house" component={House} />
-              <Route path="/house/:room" component={Room} />
-              <Redirect to="/" />
-            </Switch>
-          </main>
-        </div>
+      <div className="app">
+        <Header />
+        <main>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/house" component={House} />
+            <Route path="/house/:room" component={Room} />
+            <Redirect to="/" />
+          </Switch>
+        </main>
+      </div>
     );
   }
 }

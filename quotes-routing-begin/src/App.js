@@ -9,7 +9,7 @@ import Home from './components/Home';
 class App extends Component {
   render() {
     return (
-      <div className="uotes">
+      <div className="adaquotes">
         <Header />
         <Home />
         <Footer />

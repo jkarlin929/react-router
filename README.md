@@ -125,7 +125,9 @@ If you ever need to test paths you can use this nifty [router tester](https://ps
 
 ### `Switch` and `Redirect`
 
-The `Switch` component is used to group routes and `Redirect` as the last route to render when no others have been matched. 
+The `Switch` component is used to group routes and render the first matching route.  If Switch is not used AND exact isn't set on routes then multiple routes will be rendered simultaneously.  
+
+`Redirect` is used as the last route to render when no others have been matched. 
 
 ```
   render() {
@@ -248,12 +250,13 @@ As we do so, we'll do the following things:
 For this lab you will add another route and another component.
 
 - `npm install` to install the necessary dependencies
-- The new route should be `/about`
+- Add the necessary code to make the the `li's` of `Home` and `Quotes` in the `Header` component to render those pages accordingly.  
+- Add a new route called `/about`
 - The about component should just have some basic info about WDI Dresselhaus and maybe a picture of Dresselhaus Dresselhausor something
 - After adding the component, add a link to the component in the header next to our other links
 - After adding the link, add a `<Route />` component that will match that route
 
-The final product should be the same as the app from the lecture with an additional link in the header to the new `About` component that you've created.
+The final product should be the same as the app from the lecture with a full working for all the links in Header. 
 
 
 ### References
