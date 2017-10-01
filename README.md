@@ -52,7 +52,7 @@ In this example, we're hitting the `/about` route and then saying "Okay, render 
 
 ### `Router`
 
-React Router gives us access to the `Router` component. It talks to the browser and allows us to create "history" (the ability to use the forward/back buttons) with our app, even though we are still on a single-page app.
+React Router gives us access to the `Router` component. It talks to the browser and allows us to create "history" (the ability to use the forward/back buttons) with our app, even though we are still on a single-page app.  It also provides us the ability to update the URL to redirect by updating the history object. 
 
 As with a components `render()` method the `Router` component also expects to receive only one child element.  The child element can have routes defined or those routes could be even nested further.  
 
@@ -66,9 +66,7 @@ A `route` has defined props that tell it what route to look for but also what to
 
 - `path` - the url that should be matched
 - `component` - the component that should be rendered
-- `render` - jsx that should be rendered instead of using component
-
-A `route` requires a `path` prop which contains the route it's looking to match. 
+- `render` - jsx that is rendered directly in the route
 
 ### Let's put both of these in action.
 
@@ -90,7 +88,7 @@ In `App.js`:
     return (
         <div className="app">
           <main>
-            <Route path="/" component={Index} />
+            <Route path="/" component={Home} />
             <Route path="/house" component={House} />
           </main>
         </div>
@@ -101,17 +99,17 @@ In `App.js`:
 Let's talk a little bit about what's going on here. 
 
 ```
-<Route path="/" component={Index} />
+<Route path="/" component={Home} />
 ```
 
-We're telling the route what path it should expect, and which component it should render at that point. However, there's one thing we need to fix. The path to `/house` also shows our index component. That shouldn't happen! We fix it by using `exact` as we define the path.
+We're telling the route what path it should expect, and which component it should render at that point. However, there's one thing we need to fix. The path to `/house` also shows our Home component. That shouldn't happen! We fix it by using `exact` as we define the path.
 
 ```
   render() {
     return (
         <div className="app">
           <main>
-            <Route exact path="/" component={Index} />
+            <Route exact path="/" component={Home} />
             <Route path="/house" component={House} />
           </main>
         </div>
@@ -119,13 +117,31 @@ We're telling the route what path it should expect, and which component it shoul
   }
 ```
 
-This tells the route to only render that component if the route is exactly `/`.
+This tells the route to only render that component if the route matches exactly `/`.
 
 If you ever need to test paths you can use this nifty [router tester](https://pshrmn.github.io/route-tester/#/) app to do so. 
 
+### Lab 1 - Add Router and Routes - 20min
+
+Do the following:
+
+- 1) Run `npm install --save react-router-dom`. Confirm that `package.json` now references the installed package
+- 2) Update `index.js` to import `BrowserRouter as Router` from `react-router-dom`.
+- 3) Use the `Router` component to provide routing functionality to the `App` component.
+- 3) In `App.js` add the following routes to the `<main>` section: 
+
+| Route       | Component To Render           | 
+| ------------- |:-------------:| 
+| /      | Home | 
+| /house      | House      |  
+
+Test both routes and make note of what happens when you go to either route, specifically the `/house` route.
+
+- 5) Add the `exact` prop to the default route and test the `/house` route again.
+
 ### `Switch` and `Redirect`
 
-The `Switch` component is used to group routes and render the first matching route.  If Switch is not used AND exact isn't set on routes then multiple routes will be rendered simultaneously.  
+As we've seen thus far it's possible for multiple routes to execute simultaneously without including `exact`.  The `Switch` component can be used to group routes and will only render the first matching route.  If the routes are added in the order of most to least specific then it's possible to avoid using `exact`  altogether. 
 
 `Redirect` is used as the last route to render when no others have been matched. 
 
@@ -147,7 +163,7 @@ The `Switch` component is used to group routes and render the first matching rou
 
 ### Using params
 
-Just like with Express, we can use parameters in our URL structure to render pages differently. Let's add a new route to our app so far.
+Just like with Express, we can use parameters in our URL structure to render pages differently. Parameters are defined using a colon and the parameter name.  Let's add a new route to our app that will be used to capture a specific room type in a house. 
 
 ```
   render() {
@@ -161,9 +177,7 @@ Just like with Express, we can use parameters in our URL structure to render pag
   }
 ```
 
-Notice the colon, just like an Express route. Now, whatever `/house/[whatever]` endpoint we go to, we'll be getting a `Room` component.
-
-However, as it is right now, the `Room` component is pretty boring. Let's see if we can make it a little bit more interesting. React Router allows us to access the parameters we're passed in the route -- sort of like `req.params`. 
+Once the parameter is captured it's stored within the `this.props.match.params` object as a key\value pair.  This  
 
 In `Room.jsx`:
 
@@ -177,9 +191,26 @@ In `Room.jsx`:
   };
 ```
 
+### Redirect Using the Router History Object
+
+Sometimes the need arrises to change the URL based on some event and force a redirect to another route.  This can be done by pushing the new route into the routers `history` property which is done using it's `push` method.  The `history` property is made available to the rendered component via `this.props.history`. 
+
+In `Room.jsx`:
+
+```
+  render() {
+    return (
+      <div>
+        <p>This is the {this.props.match.params.room}.</p>
+        <button onClick={this.props.history.push('/')}>Back to home</button>
+      </div>
+    );
+  };
+```
+
 ### Linking to routes
 
-We've used `Router` and `Route` that we imported from `react-router-dom`, but not `Link` yet. `Link`, predictably, is what allows you to link to other pages in your app. Let's create a new component called `Header` add a pseudo-navigation to our app.
+So we've used `Router` and `Route` thus far to control routing and `this.props.history.push()` to force a redirect. Another way to force the redirect based on an `anchor` tag is to use the `Link` component. This provides us the ability to link to other pages in your app.  The `Link` component is rendered as an anchor tag.  Let's create a new component called `Header` add a pseudo-navigation to our app.
 
 In `Header.js`:
 
@@ -236,7 +267,7 @@ Let's take sometime to review the lab and make sure we understand how to impleme
 
 # Routes, states, and multi-page apps
 
-Using routes to mimic a multi-page effect is good and cool, but the example we just walked through is just the tip of the iceberg of what's possible when it comes to routes. Let's add routes to our Dresselhaus Quotes React app.
+Using routes to mimic a multi-page effect is good and cool, but the example we just walked through is just the tip of the iceberg of what's possible when it comes to routes. Let's add routes to our Quotes React app.
 
 As we do so, we'll do the following things:
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Quote from './partials/Quote';
 import Loading from './partials/Loading';
 
