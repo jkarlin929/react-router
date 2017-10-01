@@ -125,10 +125,13 @@ If you ever need to test paths you can use this nifty [router tester](https://ps
 
 Do the following:
 
-- 1) Run `npm install --save react-router-dom`. Confirm that `package.json` now references the installed package
-- 2) Update `index.js` to import `BrowserRouter as Router` from `react-router-dom`.
-- 3) Use the `Router` component to provide routing functionality to the `App` component.
-- 3) In `App.js` add the following routes to the `<main>` section: 
+1) Run `npm install --save react-router-dom`. Confirm that `package.json` now references the installed package
+
+2) Update `index.js` to import `BrowserRouter as Router` from `react-router-dom`.
+
+3) Use the `Router` component to provide routing functionality to the `App` component.
+
+4) In `App.js` add the following routes to the `<main>` section: 
 
 | Route       | Component To Render           | 
 | ------------- |:-------------:| 
@@ -137,7 +140,7 @@ Do the following:
 
 Test both routes and make note of what happens when you go to either route, specifically the `/house` route.
 
-- 5) Add the `exact` prop to the default route and test the `/house` route again.
+5) Add the `exact` prop to the default route and test the `/house` route again.
 
 ### `Switch` and `Redirect`
 
