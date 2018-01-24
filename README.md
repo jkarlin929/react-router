@@ -52,13 +52,25 @@ In this example, we're hitting the `/about` route and then saying "Okay, render 
 
 ### `Router`
 
-React Router gives us access to the `Router` component. It talks to the browser and allows us to create "history" (the ability to use the forward/back buttons) with our app, even though we are still on a single-page app.  It also provides us the ability to update the URL to redirect by updating the history object. 
+React Router first provides us the `Router` component. It talks to the browser and allows us to create "history" (the ability to use the forward/back buttons) with our app, even though we are still on a single-page app.  It also provides us the ability to update the URL to redirect by updating the history object. 
 
 As with a components `render()` method the `Router` component also expects to receive only one child element.  The child element can have routes defined or those routes could be even nested further.  
 
 ### `Route`
 
 Much as in our Express routes, the React Router `Route` component allows us to define a URL endpoint and describe what should load on the page at that point. They can be created anyplace inside of `Router`.
+
+Let's get this setup at our most top level App component in  `index.js`:
+
+```
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root')
+);
+```
+
 
 #### `Route Props`
 
@@ -70,16 +82,6 @@ A `route` has defined props that tell it what route to look for but also what to
 
 ### Let's put both of these in action.
 
-In `index.js`:
-
-```
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById('root')
-);
-```
 
 In `App.js`:
 
