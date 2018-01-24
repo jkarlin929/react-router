@@ -180,7 +180,7 @@ Just like with Express, we can use parameters in our URL structure to render pag
   }
 ```
 
-Once the parameter is captured it's stored within the `this.props.match.params` object as a key\value pair.  This  
+Once the parameter is captured it's stored within the `this.props.match.params` object as a key\value pair.  
 
 In `Room.jsx`:
 
@@ -258,7 +258,7 @@ class App extends Component {
 
 ## 🚀 Lab - Using Routes - (30 min) 
 
-In the  `hosue-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
+In the  `house-example-begin` directory, install the dependencies. Then, follow the steps we just went over in class to get your begin app to look just like the one we did together.
 
 You can work in pairs or groups for this lab. 
 
@@ -283,15 +283,13 @@ As we do so, we'll do the following things:
 
 For this lab you will add another route and another component.
 
-- `npm install` to install the necessary dependencies
+- `npm install` to install the necessary dependencies.
 - Add the necessary code to make the the `li's` of `Home` and `Quotes` in the `Header` component to render those pages accordingly.  
-- Add a new route called `/about`
-- The about component should just have some basic info about WDI Dresselhaus and maybe a picture of Dresselhaus Dresselhausor something
-- After adding the component, add a link to the component in the header next to our other links
-- After adding the link, add a `<Route />` component that will match that route
+- Add a new route called `/about`.
+- The about component should just have some basic info about your cohort and maybe a picture of it as well.
+- After adding the component, add a link to the component in the header next to our other links.
+- After adding the link, add a `<Route />` component that will match that route.
 
 The final product should be the same as the app from the lecture with a full working for all the links in Header. 
 
-
-### References
 

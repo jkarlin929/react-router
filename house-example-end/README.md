@@ -1,1 +1,0 @@
-### Mid-lecture house example
