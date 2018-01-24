@@ -121,11 +121,11 @@ This tells the route to only render that component if the route matches exactly 
 
 If you ever need to test paths you can use this nifty [router tester](https://pshrmn.github.io/route-tester/#/) app to do so. 
 
-### Lab 1 - Add Router and Routes - 20min
+### Lab 1 - Add Router and Routes To House-Example-Begin - 20min
 
 Do the following:
 
-1) Run `npm install --save react-router-dom`. Confirm that `package.json` now references the installed package
+1) "Run `npm install --save react-router-dom`. Confirm that `package.json` now references the installed package
 
 2) Update `index.js` to import `BrowserRouter as Router` from `react-router-dom`.
 
